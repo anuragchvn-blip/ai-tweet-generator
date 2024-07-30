@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-      <style>{`
+    <style>{`
   :root {
     --background: #ffffff;
     --text: #000000;
@@ -156,11 +156,9 @@ export default function Home() {
     z-index: 1000;
   }
 
-
-
-
-  }
+ 
 `}</style>
+
 
 
       </Head>
