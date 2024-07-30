@@ -1,20 +1,16 @@
-export const lightTheme = {
-    name: 'light',
-    body: '#FFF',
-    text: '#000',
-    card: '#FFF',
-    primary: '#0070f3',
-    primaryHover: '#005bb5',
-    toggle: '#0070f3',
-  };
-  
-  export const darkTheme = {
-    name: 'dark',
-    body: '#363537',
-    text: '#FAFAFA',
-    card: '#424242',
-    primary: '#BB86FC',
-    primaryHover: '#3700B3',
-    toggle: '#BB86FC',
-  };
-  
+export const theme = {
+  body: '#F9F9F9',
+  text: '#333333',
+  card: '#FFFFFF',
+  primary: '#1E90FF',
+  primaryHover: '#1C86EE',
+  toggle: '#1E90FF',
+  secondary: '#FF6347',
+  secondaryHover: '#FF4500',
+  background: '#EFEFEF', // Background color
+  resultBox: {
+    background: '#FFFFFF', // Result box background color
+    text: '#333333', // Result box text color
+    border: '#DDDDDD', // Result box border color
+  }
+};

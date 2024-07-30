@@ -39,144 +39,130 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <style>{`
-          :root {
-            --background-light: #fff;
-            --text-light: #000;
-            --card-light: #f8f8f8;
-            --primary-light: #0070f3;
-            --primary-hover-light: #005bb5;
-            --toggle-light: #0070f3;
+      <style>{`
+  :root {
+    --background: #ffffff;
+    --text: #000000;
+    --card: #f8f8f8;
+    --primary: #0070f3;
+    --primary-hover: #005bb5;
+    --toggle: #0070f3;
+    --input-border: #ccc;
+    --input-border-focus: #0070f3;
+    --result-background: #f8f8f8;
+    --result-border: #ddd;
+  }
 
-            --background-dark: #363537;
-            --text-dark: #fafafa;
-            --card-dark: #424242;
-            --primary-dark: #bb86fc;
-            --primary-hover-dark: #3700b3;
-            --toggle-dark: #bb86fc;
-          }
+  body {
+    background: var(--background);
+    color: var(--text);
+    transition: background 0.5s ease, color 0.5s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
 
-          [data-theme="light"] {
-            --background: var(--background-light);
-            --text: var(--text-light);
-            --card: var(--card-light);
-            --primary: var(--primary-light);
-            --primary-hover: var(--primary-hover-light);
-            --toggle: var(--toggle-light);
-          }
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
-          [data-theme="dark"] {
-            --background: var(--background-dark);
-            --text: var(--text-dark);
-            --card: var(--card-dark);
-            --primary: var(--primary-dark);
-            --primary-hover: var(--primary-hover-dark);
-            --toggle: var(--toggle-dark);
-          }
+  .card {
+    background: var(--card);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: background 0.5s ease;
+    position: relative;
+  }
 
-          body {
-            background: var(--background);
-            color: var(--text);
-            transition: background 0.5s ease, color 0.5s ease;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-          }
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
 
-          .container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-          }
+  .label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: left;
+    color: var(--text);
+  }
 
-          .card {
-            background: var(--card);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 24px;
-            width: 400px;
-            text-align: center;
-            transition: background 0.5s ease;
-            position: relative;
-          }
+  .input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--input-border);
+    outline: none;
+    color: var(--text); /* Ensures text is visible in input fields */
+    background: var(--background); /* Ensures background is consistent */
+    transition: border-color 0.3s ease;
+  }
 
-          .title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-          }
+  .input:focus {
+    border-color: var(--input-border-focus);
+  }
 
-          .label {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            display: block;
-            text-align: left;
-          }
+  .button {
+    width: 100%;
+    padding: 10px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--primary);
+  }
 
-          .input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            outline: none;
-            transition: border-color 0.3s ease;
-          }
+  .button:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 0 20px var(--primary-hover);
+  }
 
-          .input:focus {
-            border-color: var(--primary);
-          }
+  .result-box {
+    background: var(--result-background);
+    border: 1px solid var(--result-border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: var(--text); /* Ensures text is visible in result box */
+  }
 
-          .button {
-            width: 100%;
-            padding: 10px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 0 20px var(--primary);
-          }
+  .toggle-button {
+    padding: 10px;
+    background: transparent;
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
 
-          .button:hover {
-            background: var(--primary-hover);
-            box-shadow: 0 0 40px var(--primary-hover), 0 0 80px var(--primary-hover);
-          }
 
-          .toggle-button {
-            padding: 10px;
-            background: transparent;
-            color: transparent;
-            border: none;
-            cursor: pointer;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-          }
 
-          .toggle-button::before {
-            content: '🌞';
-            font-size: 24px;
-            display: block;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 24px;
-            background: var(--toggle);
-            box-shadow: 0 0 10px var(--toggle), 0 0 20px var(--toggle), 0 0 30px var(--toggle);
-            transition: box-shadow 0.3s ease;
-          }
 
-          .toggle-button:hover::before {
-            box-shadow: 0 0 20px var(--toggle), 0 0 40px var(--toggle), 0 0 60px var(--toggle);
-          }
-        `}</style>
+  }
+`}</style>
+
+
       </Head>
       <button onClick={toggleTheme} className="toggle-button"></button>
       <div className="card">
