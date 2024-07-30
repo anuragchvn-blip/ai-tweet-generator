@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-    <style>{`
+   <style>{`
   :root {
     --background: #ffffff;
     --text: #000000;
@@ -51,6 +51,7 @@ export default function Home() {
     --input-border-focus: #0070f3;
     --result-background: #f8f8f8;
     --result-border: #ddd;
+    --result-text: #000000; /* Ensure result text color is visible */
   }
 
   body {
@@ -141,7 +142,8 @@ export default function Home() {
     width: 100%;
     max-width: 400px;
     text-align: center;
-    color: var(--text); /* Ensures text is visible in result box */
+    color: var(--result-text); /* Ensures result text color is visible */
+    font-size: 1rem; /* Ensures readable text size */
   }
 
   .toggle-button {
@@ -156,8 +158,11 @@ export default function Home() {
     z-index: 1000;
   }
 
- 
-`}</style>
+
+
+  
+</style>
+
 
 
 
