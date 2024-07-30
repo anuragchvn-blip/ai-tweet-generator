@@ -159,9 +159,8 @@ export default function Home() {
   }
 
 
+`}</style>
 
-  
-</style>
 
 
 
